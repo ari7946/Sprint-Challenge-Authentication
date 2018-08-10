@@ -7,4 +7,5 @@ Middleware are functions that manipulate the request-response cycle. Sessions ar
 It hashes users' passwords before they're store in a database.
 
 3.  What are the three parts of the JSON Web Token?
+The header. The payload. The signature.
 
