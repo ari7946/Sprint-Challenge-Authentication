@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import '../index.css';
 import Header from './Header';
-import { Link } from 'react-router-dom';
 import axios from "axios";
 axios.defaults.withCredentials = true
 
@@ -21,7 +20,6 @@ class App extends Component {
         Authorization: token
       }
     }
-    console.log('requestOptions', localStorage.getItem('token'))
     axios
       .get(`http://localhost:5000/api/jokes`, requestOptions)
       .then(res => {

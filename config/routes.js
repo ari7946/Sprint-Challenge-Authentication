@@ -37,7 +37,7 @@ function login(req, res) {
     .then(function(user) {
       if (user && bcrypt.compareSync(credentials.password, user.password)) {
         const token = generate(user);
-        res.json({token, username: user.username});
+        return res.json({token, username: user.username});
       } else {
         return res.status(401).json({ error: 'Incorrect Username or Password' });
       }
