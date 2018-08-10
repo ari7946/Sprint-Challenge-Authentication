@@ -15,17 +15,15 @@ function register(req, res) {
   const user = req.body;
   const hash = bcrypt.hashSync(user.password, 14);
   user.password = hash;
-  console.log(user)
   db    
     .insert(user)
     .into('users')
     .then(id => {
       db('users') 
         .then(users => {
-          console.log(users)
           const user = users.pop();
           const token = generate(user);
-          res.send(token);
+          res.json({token, username: user.username});
         })
     })
     .catch(err => console.log(err));
