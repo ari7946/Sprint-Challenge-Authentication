@@ -32,7 +32,21 @@ function register(req, res) {
 }
 
 function login(req, res) {
-
+  const credentials = req.body;
+  db('users')
+    .where({ username: credentials.username })
+    .first()
+    .then(function(user) {
+      if (user && bcrypt.compareSync(credentials.password, user.password)) {
+        const token = generate(user);
+        res.send(token);
+      } else {
+        return res.status(401).json({ error: 'Incorrect Username or Password' });
+      }
+    })
+    .catch(function(error) {
+      res.status(500).json({ error });
+    });
 }
 
 function getJokes(req, res) {
