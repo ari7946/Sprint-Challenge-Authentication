@@ -12,7 +12,7 @@ const corsOptions = {
 };
 
 server.use(express.json());
-server.use(cors());
+server.use(cors({origin: 'http://localhost:3000', credentials:true}));
 
 configureRoutes(server);
 
