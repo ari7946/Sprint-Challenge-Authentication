@@ -23,6 +23,7 @@ class App extends Component {
     axios
       .get(`http://localhost:5000/api/jokes`, requestOptions)
       .then(res => {
+        console.log(res.data)
         this.setState({
           jokes: res.data
         })
@@ -41,6 +42,7 @@ class App extends Component {
               <div className="card-body">
                 <p className="small">{joke.type}</p>
                 <h5 className="card-title py-0">{joke.setup}</h5>
+                <p>{joke.punchline}</p>
               </div>
             </div>
           )}

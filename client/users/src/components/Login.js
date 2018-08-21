@@ -26,6 +26,7 @@ export default class Login extends Component {
   }
 
   handleChange = e => {
+    console.log(e.target.value);
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -34,31 +35,31 @@ export default class Login extends Component {
   render() {
     return (
       <div className="App">
-      <Header />
-      <div className="form-group container w-50">
-        <h3 className="header mt-2">Login</h3>
-        <input
-          name='username'
-          type='text' 
-          className="form-control"
-          placeholder="Username"
-          onChange={(e) => this.handleChange(e)}
-        /><br />
-        <input
-          name='password' 
-          type='password'
-          className="form-control"
-          placeholder="password"
-          onChange={(e) => this.handleChange(e)}
-        /><br />
-        <button 
-          type="submit" 
-          className="btn btn-info"
-          onClick={() => this.handleSubmit()}
-        >
-          Login
-        </button>
-      </div>
+        <Header />
+        <div className="form-group container w-50">
+          <h3 className="header mt-2">Login</h3>
+          <input
+            name='username'
+            type='text' 
+            className="form-control"
+            placeholder="Username"
+            onChange={(e) => this.handleChange(e)}
+          /><br />
+          <input
+            name='password' 
+            type='password'
+            className="form-control"
+            placeholder="password"
+            onChange={(e) => this.handleChange(e)}
+          /><br />
+          <button 
+            type="submit" 
+            className="btn btn-info"
+            onClick={() => this.handleSubmit()}
+          >
+            Login
+          </button>
+        </div>
       </div>
     )
   }
